@@ -1,0 +1,475 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrodomésticos Shopp - Qualidade e Melhores Ofertas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-800 flex flex-col min-h-full">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-brand-500 to-amber-500 text-white p-2.5 rounded-2xl shadow-lg ring-2 ring-brand-500/20 flex items-center justify-center">
+                        <i class="fa-solid fa-store text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-slate-900 leading-none flex items-center gap-1">
+                            eletro<span class="text-amber-500">.</span>
+                        </span>
+                        <span class="text-xs font-bold tracking-widest bg-brand-600 text-white px-2 py-0.5 rounded-md uppercase inline-block mt-0.5">Shopp</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('produtos')" class="text-slate-600 hover:text-brand-600 font-medium transition">Catálogo e Preços</button>
+                    <button onclick="scrollToSection('vender-seminovo')" class="text-brand-600 font-bold transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Vender ou Revender</span>
+                    </button>
+                    <button onclick="scrollToSection('parceria-marcas')" class="text-slate-600 hover:text-brand-600 font-medium transition">Parceria com Marcas</button>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="scrollToSection('vender-seminovo')" class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 rounded-xl font-medium shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <span>Vender/Revender Agora</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-2 pb-4 space-y-2">
+            <button onclick="scrollToSection('produtos')" class="block w-full text-left py-2 text-slate-600 font-medium">Catálogo e Preços</button>
+            <button onclick="scrollToSection('vender-seminovo')" class="block w-full text-left py-2 text-amber-600 font-bold">Vender ou Revender Usado</button>
+            <button onclick="scrollToSection('parceria-marcas')" class="block w-full text-left py-2 text-slate-600 font-medium">Parceria com Marcas</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-slate-900 to-brand-900 text-white py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                        Compramos e vendemos seminovos
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                        Quer <span class="text-amber-400">vender ou revender</span> seu eletrodoméstico usado?
+                    </h1>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        Pagamos um valor justo pelo seu aparelho usado ou seminovo com pix rápido! Também oferecemos produtos novos e revisados com os melhores preços do mercado.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('vender-seminovo')" class="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Enviar Foto e Pedir Avaliação</span>
+                        </button>
+                        <button onclick="scrollToSection('produtos')" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl backdrop-blur-sm border border-white/10 transition text-center">
+                            Ver Catálogo de Preços
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                        <i class="fa-solid fa-clipboard-check text-3xl text-amber-400 mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Avaliação Detalhada</h3>
+                        <p class="text-slate-400 text-sm">Preencha os dados e receba uma proposta para o seu aparelho.</p>
+                    </div>
+                    <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                        <i class="fa-solid fa-money-bill-wave text-3xl text-emerald-400 mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Pagamento à Vista</h3>
+                        <p class="text-slate-400 text-sm">Receba por PIX ou dinheiro no momento da retirada.</p>
+                    </div>
+                    <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                        <i class="fa-solid fa-truck-ramp-box text-3xl text-brand-400 mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Retirada no Local</h3>
+                        <p class="text-slate-400 text-sm">Combinamos a retirada diretamente na sua residência ou loja.</p>
+                    </div>
+                    <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                        <i class="fa-solid fa-handshake-angle text-3xl text-brand-400 mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Parceria Comercial</h3>
+                        <p class="text-slate-400 text-sm">Trabalhamos também com revendedores e marcas parceiras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section with Filters -->
+    <section id="produtos" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Catálogo de Produtos</h2>
+                <p class="text-slate-600 mt-2">Confira nossos eletrodomésticos disponíveis com valores atualizados</p>
+            </div>
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap gap-2" id="filter-buttons">
+                <button onclick="filterProducts('all')" class="filter-btn active-filter bg-brand-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">Todos</button>
+                <button onclick="filterProducts('novo')" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-medium transition">Novos</button>
+                <button onclick="filterProducts('seminovo')" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-medium transition">Seminovos</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Product Item 1 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="novo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Novo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Geladeira+Frost+Free" alt="Geladeira Frost Free 400L" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Cozinha</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Geladeira Duplex Frost Free 400L</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Inox, alta economia de energia com tecnologia Inverter.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Preço à vista</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 2.899</span>
+                        </div>
+                        <button onclick="openBuyModal('Geladeira Duplex Frost Free 400L', 'R$ 2.899')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 2 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="seminovo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Seminovo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Maquina+de+Lavar+12kg" alt="Máquina de Lavar 12kg" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Lavanderia</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Máquina de Lavar Top Load 12kg</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Revisada com garantia de 6 meses. Estado impecável.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block font-normal">De <span class="line-through">R$ 1.800</span> por</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 1.150</span>
+                        </div>
+                        <button onclick="openBuyModal('Máquina de Lavar Top Load 12kg', 'R$ 1.150')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 3 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="novo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Novo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Micro-ondas+30L" alt="Micro-ondas 30L" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Cozinha</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Micro-ondas Espelhado 30L</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Função desodorizadora e receitas pré-programadas.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Preço à vista</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 649</span>
+                        </div>
+                        <button onclick="openBuyModal('Micro-ondas Espelhado 30L', 'R$ 649')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 4 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="seminovo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Seminovo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Ar+Condicionado+12000" alt="Ar Condicionado Split 12000 BTU" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Climatização</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Ar Condicionado Split 12000 BTU</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Quente/Frio, revisado, com carga de gás completa.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block font-normal">De <span class="line-through">R$ 2.100</span> por</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 1.390</span>
+                        </div>
+                        <button onclick="openBuyModal('Ar Condicionado Split 12000 BTU', 'R$ 1.390')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 5 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="novo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Novo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Fogao+5+Bocas" alt="Fogão 5 Bocas" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Cozinha</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Fogão 5 Bocas com Mesa de Vidro</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Acendimento automático e forno de alta capacidade.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Preço à vista</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 1.450</span>
+                        </div>
+                        <button onclick="openBuyModal('Fogão 5 Bocas com Mesa de Vidro', 'R$ 1.450')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Item 6 -->
+            <div class="product-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col" data-condition="seminovo">
+                <div class="relative bg-slate-100 aspect-square flex items-center justify-center p-4">
+                    <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase">Seminovo</span>
+                    <img src="https://placehold.co/400x400/f1f5f9/334155?text=Lava+e+Seca+11kg" alt="Lava e Seca 11kg" class="object-contain h-48 w-full" />
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">Lavanderia</span>
+                    <h3 class="font-bold text-slate-900 text-lg mt-1 mb-2">Lava e Seca Smart 11kg</h3>
+                    <p class="text-slate-500 text-sm mb-4 line-clamp-2">Economia de água, motor silencioso, 1 ano de uso.</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block font-normal">De <span class="line-through">R$ 3.500</span> por</span>
+                            <span class="text-2xl font-extrabold text-slate-900">R$ 2.290</span>
+                        </div>
+                        <button onclick="openBuyModal('Lava e Seca Smart 11kg', 'R$ 2.290')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-3 rounded-xl transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section: Contact Channels -->
+    <section class="bg-slate-100 py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-600 font-semibold uppercase tracking-wider text-sm">Canais de Contato</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">Como podemos fazer negócios juntos?</h2>
+                <p class="text-slate-600 mt-3">Escolha a opção ideal para você abaixo e envie as informações necessárias para nossa equipe.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Form 1: Sell Used Appliances -->
+                <div id="vender-seminovo" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-amber-100 text-amber-700 p-3.5 rounded-xl">
+                                <i class="fa-solid fa-sack-dollar text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">Vender ou Revender Seu Eletrodoméstico</h3>
+                                <p class="text-slate-500 text-sm">Quer vender seu usado ou lote de revenda? Receba uma oferta justa!</p>
+                            </div>
+                        </div>
+
+                        <form id="form-seminovo" onsubmit="handleFormSubmit(event, 'seminovo')" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Seu Nome Completo</label>
+                                <input type="text" required placeholder="Ex: Maria Silva" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Telefone / WhatsApp</label>
+                                    <input type="tel" required placeholder="(00) 00000-0000" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Cidade e Bairro</label>
+                                    <input type="text" required placeholder="Ex: São Paulo - Pinheiros" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Tipo de Negociação</label>
+                                    <select required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800 bg-white">
+                                        <option value="">Selecione...</option>
+                                        <option value="venda-unica">Venda Única (1 aparelho pessoal)</option>
+                                        <option value="revenda-lote">Revenda de Lote / Vários aparelhos</option>
+                                        <option value="troca">Troca por outro do catálogo</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Tipo de Aparelho</label>
+                                    <select required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800 bg-white">
+                                        <option value="">Selecione...</option>
+                                        <option value="Geladeira">Geladeira / Freezer</option>
+                                        <option value="Lavadora">Máquina de Lavar / Lava e Seca</option>
+                                        <option value="Fogao">Fogão / Cooktop / Forno</option>
+                                        <option value="Microondas">Micro-ondas</option>
+                                        <option value="ArCondicionado">Ar Condicionado</option>
+                                        <option value="Outro">Outros Eletrodomésticos</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Tempo de Uso Aproximado</label>
+                                    <input type="text" required placeholder="Ex: 1 ano e 6 meses" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Valor Pretendido (R$)</label>
+                                    <input type="number" required placeholder="Valor que gostaria de receber" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Detalhes, Marca e Estado de Conservação</label>
+                                <textarea rows="3" required placeholder="Informe a marca, modelo e se possui algum detalhe, risco ou se está funcionando 100%..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-slate-800"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition shadow-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar para Avaliação Gratuita</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Form 2: Brand Partnerships -->
+                <div id="parceria-marcas" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-brand-100 text-brand-700 p-3 rounded-xl">
+                                <i class="fa-solid fa-building-user text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">Parceria com Marcas e Fornecedores</h3>
+                                <p class="text-slate-500 text-sm">Seja um fornecedor ou marca parceira da Shopp.</p>
+                            </div>
+                        </div>
+
+                        <form id="form-parceria" onsubmit="handleFormSubmit(event, 'parceria')" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Nome da Empresa / Marca</label>
+                                <input type="text" required placeholder="Razão social ou Nome Fantasia" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Nome do Responsável</label>
+                                    <input type="text" required placeholder="Seu nome completo" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">CNPJ</label>
+                                    <input type="text" required placeholder="00.000.000/0001-00" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">E-mail Comercial</label>
+                                    <input type="email" required placeholder="contato@suaempresa.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Telefone / Comercial</label>
+                                    <input type="tel" required placeholder="(00) 0000-0000" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Categoria de Produtos</label>
+                                <input type="text" required placeholder="Ex: Linha Branca, Portáteis, Ar Condicionado" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Proposta de Parceria</label>
+                                <textarea rows="3" required placeholder="Conte-nos um pouco sobre seus produtos, condições de fornecimento ou representação..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-slate-800"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl transition shadow-sm">
+                                Enviar Proposta de Parceria
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Notification System (Custom Message Box instead of alert) -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl transform transition-all">
+            <div id="modal-icon" class="w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <!-- Icon via JS -->
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-center text-slate-900 mb-2"></h3>
+            <p id="modal-message" class="text-slate-600 text-center text-sm mb-6"></p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 rounded-xl transition">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer (Without Social Media Links) -->
+    <footer class="bg-slate-900 text-white pt-12 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-slate-800">
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-gradient-to-br from-brand-500 to-amber-500 text-white p-2 rounded-xl shadow-md flex items-center justify-center">
+                            <i class="fa-solid fa-store text-xl"></i>
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-white">eletro<span class="text-amber-400">.</span> <span class="bg-brand-600 text-white text-xs px-2 py-0.5 rounded uppercase font-bold tracking-wider">Shopp</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sua loja de confiança para compra e venda de eletrodomésticos novos e seminovos com preços acessíveis e avaliação justa.
+                    </p>
+                </div>
+
+                <!-- Navigation Quick Links -->
+<!-- ... existing code -->
+```
